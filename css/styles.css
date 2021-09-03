@@ -18,6 +18,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 14px;
+    letter-spacing: 0.03em;
     color: var(--main-text-color);
 }
 
@@ -70,9 +71,9 @@ img {
     color:var(--accent-color);
     
 }
-/* .header-logo {
+.header-logo {
     animation-duration: 250ms;
-} */
+}
 .section-title {
     margin-bottom: 50px;
     font-weight: bold;
@@ -558,22 +559,33 @@ img {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
     opacity: 1;
-    transition: opacity 250ms var(--timing-function),
-                visibility 250ms var(--timing-function),
-                pointer-events 250ms var(--timing-function);          
+    transition: opacity 250ms var(--timing-function);
+                /* visibility 250ms var(--timing-function), */
+                
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    /* visibility: hidden; */
+    pointer-events: none;
+}
+
+.backdrop.is-hidden.modal {
+    transform: translate(-50%, -50%) scale(0.5);
 }
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 528px;       
-    height: 581px;
+    min-width: 528px;       
+    min-height: 581px;
     background-color: var(--bg-color);
-}
-.backdrop.is-hidden.modal {
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 5000ms var(--timing-function);
 }
+
 
 .modal-btn {
     position: absolute;
@@ -588,10 +600,6 @@ img {
     background-color: var(--bg-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
-.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
+
 
   
