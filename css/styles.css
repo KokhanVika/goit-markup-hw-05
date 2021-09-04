@@ -276,7 +276,9 @@ img {
     left: 0;
     width: 100%;
     height: 70px;
-    padding: 27px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--third-text-color);
     background-color: rgba(47, 48, 58, 0.8);
     font-weight: bold;
@@ -331,20 +333,19 @@ img {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    fill: var(--icons-color);
-    transition: background-color 250ms var(--timing-function);
+    color: var(--icons-color);
+    transition: background-color 250ms var(--timing-function),
+                color 250ms var(--timing-function);
 }
 .social-list-icon:hover,
 .social-list-icon:focus {
     background-color: var(--accent-color);
+    color: var(--third-text-color);
 }
 .social-icon {
-    transition: fill 250ms var(--timing-function);  
+    fill: currentColor;
 }
-.social-list-icon:hover .social-icon,
-.social-list-icon:focus .social-icon {
-    fill: var(--main-title-color);
-}
+
 
 
 /* -Clients- */
@@ -368,20 +369,19 @@ img {
     border: 1px solid #AFB1B8;
     box-sizing: border-box;
     border-radius: 4px;
-    transition: border-color 250ms var(--timing-function);
+    color: var(--icons-color);
+    transition: border-color 250ms var(--timing-function),
+                color 250ms var(--timing-function);
 }
 .clients-icon {
-    fill: var(--icons-color);
-    transition: fill 250ms var(--timing-function);
+    fill: currentColor;
 }
 .clients-link:hover,
 .clients-link:focus {
     border-color:  var(--accent-color);
+    color: var(--accent-color);
 }
-.clients-link:hover .clients-icon,
-.clients-link:focus .clients-icon {
-    fill: var(--accent-color);
-}
+
  
 /*-Footer-*/
 .footer {
@@ -432,7 +432,7 @@ img {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    fill: var(--main-title-color);
+    color: var(--main-title-color);
     background-color: rgba(255, 255, 255, 0.1);
     transition: background-color 250ms var(--timing-function);
 }
@@ -544,6 +544,8 @@ img {
 }
 .card {
     display: block;
+    cursor: pointer;
+    color: inherit;
     transition: box-shadow 250ms var(--timing-function);             
 }
 
@@ -552,10 +554,7 @@ img {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.card {
-    cursor: pointer;
-    color: inherit;
-}
+
 /*-текст под картинкой-*/
 .card-content {
     padding: 20px 24px;
@@ -594,11 +593,14 @@ img {
     background-color: rgba(33, 150, 243, 0.9);
     overflow: auto;
     transform: translateY(100%);
-    transition: transform 250ms var(--timing-function);
+    opacity: 0;
+    transition: transform 250ms var(--timing-function),
+                opacity 250ms var(--timing-function);
 }
 .card:hover .overlay,
 .card:focus .overlay {
     transform: translateY(0%);
+    opacity: 1;
 }
 
 
